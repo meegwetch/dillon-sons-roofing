@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --color-roof-red: #e11d48; /* Vibrant red */
+  --color-roof-navy: #0f172a; /* Deep navy */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
