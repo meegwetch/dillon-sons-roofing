@@ -19,6 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
       - run: npm ci
       - run: npm run build
@@ -31,5 +32,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
+    # 👇 THIS IS THE MISSING PIECE
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
